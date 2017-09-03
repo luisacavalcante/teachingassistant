@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Luisa';
+   aluno: Aluno = new Aluno( "",  "",  "");
+}
+
+export class Aluno {
+  nome: string;
+  cpf: string;
+  email: string;
+
+  constructor(nome:string, cpf:string,email:string){
+    this.nome=nome;
+    this.cpf=cpf;
+    this.email=email;
+  }
 }
