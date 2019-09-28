@@ -24,6 +24,7 @@ taserver.post('/aluno', function (req: express.Request, res: express.Response) {
     res.send({"failure": "O aluno não pode ser cadastrado"});
   }
 })
+curl -i -X POST -H 'Content-Type: application/json' -d   '{"nome": "Mariana", "cpf":"683", "email":"mcb@cin", "metas":{}}' localhost:3000/aluno/
 
 taserver.put('/aluno', function (req: express.Request, res: express.Response) {
   var aluno: Aluno = <Aluno> req.body;
