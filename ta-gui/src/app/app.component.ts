@@ -1,26 +1,23 @@
 import { Component } from '@angular/core';
 import { NgModule } from '@angular/core';
+import { Aluno } from './aluno';
+import { AlunoService } from './aluno.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'Luisa';
-   aluno: Aluno = new Aluno( "",  "",  "","");
+  aluno: Aluno = {nome: "", cpf: "", email: "",login:""};
+  alunoService = new AlunoService();
+
+  gravar(a: Aluno): void {
+    this.alunoService.gravar(a);
+    this.aluno = {nome: "", cpf: "", email: "", login:""};
+ }
 }
 
-export class Aluno {
-  nome: string;
-  cpf: string;
-  email: string;
-  login:string;
 
-  constructor(nome:string, cpf:string,email:string, login:string){
-    this.nome=nome;
-    this.cpf=cpf;
-    this.email=email;
-    this.login=login;
-  }
-}
+  
