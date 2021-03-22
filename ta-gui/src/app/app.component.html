@@ -1,3 +1,4 @@
+<html>
 <h1>
   Teaching Assistant
 </h1>
@@ -15,6 +16,9 @@
 <tr>
    <td><label>CPF </label></td>
    <td><input [(ngModel)]="aluno.cpf" ></td>
+   <td *ngIf="cpfduplicado">
+     Já existe um aluno com esse CPF
+   </td>
 </tr>
 <tr>
    <td><label>e-mail </label></td>
@@ -26,6 +30,20 @@
 </tr>
 </table>
 
+<table class="alunos">
+   <tr *ngIf="alunos.length > 0">
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>e-mail</th>
+      <th>Requisitos</th>
+      <th>Gerência de Configuração</th>
+   </tr>
+   <tr *ngFor="let a of alunos">
+      <td>{{a.nome}}</td>
+      <td>{{a.cpf}}</td>
+      <td>{{a.email}}</td>
+   </tr>
+   </table>
 <ul class="alunos">
 <li *ngFor="let a of alunos">
     <span>{{a.nome}}</span>,
@@ -34,3 +52,4 @@
    <span>{{a.login}}</span>
 </li>
 </ul>
+</html>
